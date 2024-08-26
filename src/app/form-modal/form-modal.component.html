@@ -1,0 +1,55 @@
+<form (ngSubmit)="onSubmit()" #personalInfo="ngForm">
+    <!-- Step 1 -->
+     <div class="" NgIf="currentStep === 0">
+        <div class="top">
+            <div class="head">
+                <div class="title">
+                    <h1>Personal info</h1>
+                </div>
+                <div class="description">
+                    <p>
+                        Please provide your name, email address and phone number.
+                    </p>
+                </div>
+            </div>
+            <div class="mid_inputs">
+                <div class="input">
+                    <div class="on_input">
+                        <label for="name">Name</label>
+                        <span NgIf="name.touched" class="error_text">This field is required</span>
+                    </div>
+                    <input type="text" placeholder="e.g Stephen King">
+                </div>
+                <div class="input">
+                    <div class="on_input">
+                        <label for="email">Email Address</label>
+                        <span NgIf="email.touched" class="error_text">This field is required</span>
+                        <span NgIf="email.errors?.['email'] email.touched" class="error_text">Must be a valid email address</span>
+                    </div>
+                    <input type="text" placeholder="e.g stephenking@lorem.com">
+                </div>
+                <div class="input">
+                    <div class="on_input">
+                        <label for="phone">Phone Number</label>
+                        <span NgIf="phone.touched" class="error_text">This field is required</span>
+                    </div>
+                    <input type="number" placeholder="e.g +1 234 567 890">
+                </div>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="cta_">
+                <button 
+                type="submit"
+                class="cta-primary"
+                [disabled]="personalInfo.form.invalid"
+                >
+                Next Step
+                </button>
+            </div>
+        </div>
+     </div>
+    
+     <!-- Step 2 -->
+
+</form>
