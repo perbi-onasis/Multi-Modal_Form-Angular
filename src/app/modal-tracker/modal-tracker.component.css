@@ -1,0 +1,54 @@
+.container{
+    width: 100%;
+    height: 100%;
+    background-image: url("/assets/images/bg-sidebar-desktop.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-color: #483EFF;
+    padding: 2rem 2rem;
+    border-radius: 1.4rem;
+}
+
+.single_mode{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    /* background-color: orange; */
+}
+
+.single_mode .left{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2.6rem;
+    width: 2.6rem;
+    border-radius: 50%;
+    font-weight: 500;
+    font-size: 1.4rem;
+    /* background-color: #BEE2FC; to be removed */
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+.active_step .left{
+    background-color: #BEE2FC;
+}
+
+.active_step .left span{
+    color: #1b1b1d;
+}
+
+.single_mode .right h3{
+    font-size: 1rem;
+    color: #9B9AFF;
+    font-weight: 500;
+}
+.single_mode .right h2{
+    font-size: 1.3rem;
+    color: #fff;
+    letter-spacing: 1.3px;
+    font-weight: 600;
+}
+
