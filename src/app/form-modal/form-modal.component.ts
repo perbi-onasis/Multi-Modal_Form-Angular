@@ -20,7 +20,7 @@ export class FormModalComponent {
     email:'',
     phoneNumber: '',
     plan: {
-      type: PlanType.Advanced,
+      type: PlanType.Arcade,
       billingCycle: BillingCycle.Monthly,
       monthlyPrice: '',
       yearlyPrice: ''
@@ -68,5 +68,6 @@ export class FormModalComponent {
     // }
   }
 
+  
 
 }
