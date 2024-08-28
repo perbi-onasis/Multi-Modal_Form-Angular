@@ -1,0 +1,89 @@
+form{
+    height: 100%;
+}
+.container{
+    width: 100%;
+    height: 100%;
+    padding: 0 10%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.head{
+    margin: 2.4rem 0;
+}
+
+.head .title h1{
+    font-size: 2.3rem;
+    color: #0B3160;
+    padding-bottom: 0.6rem;
+}
+
+.head .description{
+    font-size: 1rem;
+    font-weight: 400;
+    color: #A3A4A9;
+}
+.input{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0;
+}
+
+.input .on_input{
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 0.3rem 0;
+}
+
+.input .on_input label{
+    color: hsl(213, 96%, 18%);
+}
+
+/* Error Modes */
+.input .on_input .error_text{
+    color: hsl(354, 84%, 57%);
+    font-weight: 600;
+}
+
+input{
+    height: 3.7rem;
+    outline: none;
+    border: 2px solid hsl(231, 11%, 63%);
+    border-radius: 0.5rem;
+    margin-top: 0.2rem;
+    padding-left: 1.3rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #0B3160;
+    font-weight: 500;
+}
+
+.cta_{
+    display: flex;
+    justify-content: end;
+}
+
+.cta-primary{
+    padding: 1.3rem 1.6rem;
+    border-radius: 0.5rem;
+    background-color: #0B3160;
+    color: #fff;
+    font-size: 1.3rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin-bottom: 2.4rem;
+}
+
+input{
+    color: hsl(213, 96%, 18%);
+    color: hsl(243, 100%, 62%);
+    color: hsl(228, 100%, 84%);
+    color: hsl(206, 94%, 87%);
+    color: hsl(354, 84%, 57%);
+}
+
