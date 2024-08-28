@@ -80,7 +80,53 @@ input{
 }
 
 
-/* Step  */
+/* Step 2 */
+.plans{
+    margin-top: 4rem;
+    display: flex;
+    justify-content: space-between;
+    column-gap: 1rem;
+}
+.plan-card {
+    /* background-color: yellow; */
+    width: 30%;
+    /* height: 12rem; */
+    padding: 1.4rem;
+    border: 1.2px solid #A3A4A9;
+    border-radius: 0.6rem;
+}
+
+.plan-card .card {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.plan-card .card .planImage img{
+    width: 3rem;
+}
+
+.plan-card .card .plan_name {
+    margin-top: 60%;
+    font-size: 1.36rem;
+    color: #0B3160;
+    font-weight: 500;
+    padding-bottom: 2px;
+}
+
+.plan-card .card .plan_discount {
+    margin-top: 0.4rem;
+    font-size: 1rem;
+    color: #0B3160;
+    font-weight: 500;
+    
+}
+
+
+
+
+
+
 
 input{
     color: hsl(213, 96%, 18%);
