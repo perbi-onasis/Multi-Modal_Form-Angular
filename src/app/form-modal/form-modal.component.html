@@ -1,6 +1,6 @@
 <form (ngSubmit)="onSubmit()" #form="ngForm">
     <!-- Step 1 -->
-     <div class="container" *ngIf="currentStep === 0">
+     <div class="container" *ngIf="currentStep === 1">
         <div class="top">
             <div class="head">
                 <div class="title">
@@ -52,7 +52,7 @@
      </div>
     
     <!-- Step 2 -->
-    <div class="container" *ngIf="currentStep === 1">
+    <div class="container" *ngIf="currentStep === 0">
         <div class="top">
             <div class="head">
                 <div class="title">
@@ -70,11 +70,39 @@
                     [class.selected]="formData.plan.type === planOption.type"
                     class="plan-card" 
                     (click)="selectPlan(planOption.type)"
-                >
-                        <h3>{{ planOption.name }}</h3>
-                        <p>{{ planOption.price }}/mo</p>
+                    >
+                        <!-- Monthly Plan Display -->
+                        <div class="card" *ngIf="formData.plan.billingCycle === 'Monthly'" >
+                            <div class="planImage">
+                                <img [src]="planOption.imagePath" alt="">
+                            </div>
+                            <div class="plan_name">
+                                {{ planOption.name }}
+                            </div>
+                            <div class="plan_price">
+                                ${{ planOption.monthlyPrice }}/mo
+                            </div>
+                        </div>
+
+                        <!-- Yearly Plan Display -->
+                        <div class="card" *ngIf="formData.plan.billingCycle === 'Yearly' " >
+                            <div class="planImage">
+                                <img [src]="planOption.imagePath" alt="">
+                            </div>
+                            <div class="plan_name">
+                                {{ planOption.name }}
+                            </div>
+                            <div class="plan_price">
+                                $ {{ planOption.yearlyPrice }}/yr
+                            </div>
+                            <div class="plan_discount">
+                                2 Months Free
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Billing Cycle Toggle -->
                 <div class="billing-cycle-toggle">
                     <label>
                         <input type="radio" name="billingCycle" value="Monthly"
