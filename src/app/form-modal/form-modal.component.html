@@ -1,6 +1,6 @@
-<form (ngSubmit)="onSubmit()" #personalInfo="ngForm">
+<form (ngSubmit)="onSubmit()" #form="ngForm">
     <!-- Step 1 -->
-     <div class="" NgIf="currentStep === 0">
+     <div class="container" *ngIf="currentStep === 0">
         <div class="top">
             <div class="head">
                 <div class="title">
@@ -16,33 +16,34 @@
                 <div class="input">
                     <div class="on_input">
                         <label for="name">Name</label>
-                        <span NgIf="name.touched" class="error_text">This field is required</span>
+                        <span *ngIf="name.touched" class="error_text">This field is required</span>
                     </div>
-                    <input type="text" placeholder="e.g Stephen King">
+                    <input name="name" type="text" placeholder="e.g Stephen King" [(ngModel)]="name" #name="ngModel" required>
                 </div>
                 <div class="input">
                     <div class="on_input">
                         <label for="email">Email Address</label>
-                        <span NgIf="email.touched" class="error_text">This field is required</span>
-                        <span NgIf="email.errors?.['email'] email.touched" class="error_text">Must be a valid email address</span>
+                        <span *ngIf="email.touched" class="error_text">This field is required</span>
+                        <span *ngIf="email.errors?.['email'] && email.touched" class="error_text">Must be a valid email address</span>
                     </div>
-                    <input type="text" placeholder="e.g stephenking@lorem.com">
+                    <input name="email" type="text" placeholder="e.g stephenking@lorem.com" [(ngModel)]="email" #email="ngModel" required>
                 </div>
                 <div class="input">
                     <div class="on_input">
                         <label for="phone">Phone Number</label>
-                        <span NgIf="phone.touched" class="error_text">This field is required</span>
+                        <span *ngIf="phone.touched" class="error_text">This field is required</span>
                     </div>
-                    <input type="number" placeholder="e.g +1 234 567 890">
+                    <input name="phone" type="number" placeholder="e.g +1 234 567 890" [(ngModel)]="phone" #phone="ngModel" required>
                 </div>
             </div>
         </div>
         <div class="bottom">
             <div class="cta_">
                 <button 
-                type="submit"
+                (click)="nextStep()"
+                type="button"
                 class="cta-primary"
-                [disabled]="personalInfo.form.invalid"
+                [disabled]="form.invalid"
                 >
                 Next Step
                 </button>
@@ -50,6 +51,7 @@
         </div>
      </div>
     
-     <!-- Step 2 -->
+    <!-- Step 2 -->
+    
 
 </form>
