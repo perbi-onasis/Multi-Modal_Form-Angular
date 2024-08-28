@@ -16,24 +16,24 @@
                 <div class="input">
                     <div class="on_input">
                         <label for="name">Name</label>
-                        <span *ngIf="name.touched" class="error_text">This field is required</span>
+                        <span *ngIf="name.touched && name.invalid" class="error_text">This field is required</span>
                     </div>
-                    <input name="name" type="text" placeholder="e.g Stephen King" [(ngModel)]="name" #name="ngModel" required>
+                    <input name="name" type="text" placeholder="e.g Stephen King" [(ngModel)]="formData.name" #name="ngModel" required>
                 </div>
                 <div class="input">
                     <div class="on_input">
                         <label for="email">Email Address</label>
-                        <span *ngIf="email.touched" class="error_text">This field is required</span>
+                        <span *ngIf="email.touched && email.invalid" class="error_text">This field is required</span>
                         <span *ngIf="email.errors?.['email'] && email.touched" class="error_text">Must be a valid email address</span>
                     </div>
-                    <input name="email" type="text" placeholder="e.g stephenking@lorem.com" [(ngModel)]="email" #email="ngModel" required>
+                    <input name="email" type="text" placeholder="e.g stephenking@lorem.com" [(ngModel)]="formData.email" #email="ngModel" required>
                 </div>
                 <div class="input">
                     <div class="on_input">
                         <label for="phone">Phone Number</label>
-                        <span *ngIf="phone.touched" class="error_text">This field is required</span>
+                        <span *ngIf="phone.touched && phone.invalid" class="error_text">This field is required</span>
                     </div>
-                    <input name="phone" type="number" placeholder="e.g +1 234 567 890" [(ngModel)]="phone" #phone="ngModel" required>
+                    <input name="phone" type="number" placeholder="e.g +1 234 567 890" [(ngModel)]="formData.phoneNumber" #phone="ngModel" required>
                 </div>
             </div>
         </div>
@@ -52,6 +52,55 @@
      </div>
     
     <!-- Step 2 -->
-    
+    <div class="container" *ngIf="currentStep === 1">
+        <div class="top">
+            <div class="head">
+                <div class="title">
+                    <h1>Select your plan</h1>
+                </div>
+                <div class="description">
+                    <p>
+                        You have the option of monthly of yearly billing
+                    </p>
+                </div>
+            </div>
+            <div class="mid">
+                <div class="plans">
+                    <div *ngFor="let planOption of planOptions"
+                    [class.selected]="formData.plan.type === planOption.type"
+                    class="plan-card" 
+                    (click)="selectPlan(planOption.type)"
+                >
+                        <h3>{{ planOption.name }}</h3>
+                        <p>{{ planOption.price }}/mo</p>
+                    </div>
+                </div>
+                <div class="billing-cycle-toggle">
+                    <label>
+                        <input type="radio" name="billingCycle" value="Monthly"
+                        [(ngModel)]="formData.plan.billingCycle">
+                        Monthly
+                    </label>
+                    <label>
+                        <input type="radio" name="billingCycle" value="Yearly"
+                        [(ngModel)]="formData.plan.billingCycle">
+                        Yearly
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="cta_">
+                <button 
+                (click)="nextStep()"
+                type="button"
+                class="cta-primary"
+                [disabled]="form.invalid"
+                >
+                Next Step
+                </button>
+            </div>
+        </div>
+    </div>
 
 </form>
