@@ -27,3 +27,9 @@ export interface AddOn{
     price: number;
     selected: boolean
 }
+
+export const AvailableAddOns: AddOn[] = [
+    { name: 'Online Service', price: 10, selected: false },
+    { name: 'Larger Storage', price: 20, selected: false },
+    { name: 'Customizable Profile', price: 15, selected: false }
+]
