@@ -8,14 +8,19 @@
 }
 
 .modal-container{
-    background-color: bisque;
+    background-color: #fff;
     display: flex;
-    height: 90%;
-    width: 80%;
+    height: 80%;
+    width: 60%;
     border-radius: 1.3rem;
     padding: 1.4rem;
 }
 
 app-modal-tracker{
     width: 30%;
+}
+
+app-form-modal{
+    width: 70%;
+    height: 100%;
 }
