@@ -9,7 +9,8 @@ export interface formData{
 export interface Plan{
     type: PlanType;
     billingCycle: BillingCycle;
-    price: String;
+    monthlyPrice: String;
+    yearlyPrice: String
 }
 
 export enum PlanType{
