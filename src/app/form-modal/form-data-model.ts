@@ -1,7 +1,7 @@
 export interface formData{
     name: String,
     email: String,
-    phoneNumber: number,
+    phoneNumber: String,
     plan: Plan;
     addOns: AddOn[];
 }
@@ -9,10 +9,11 @@ export interface formData{
 export interface Plan{
     type: PlanType;
     billingCycle: BillingCycle;
+    price: String;
 }
 
 export enum PlanType{
-    Archade = 'Archade',
+    Arcade = 'Arcade',
     Advanced = 'Advanced',
     Pro = 'Pro'
 }
