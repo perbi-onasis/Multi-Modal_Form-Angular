@@ -22,16 +22,19 @@ export class FormModalComponent {
     plan: {
       type: PlanType.Advanced,
       billingCycle: BillingCycle.Monthly,
-      price: ''
+      monthlyPrice: '',
+      yearlyPrice: ''
     },
     addOns: AvailableAddOns
   }
 
   planOptions = [
-    { name: 'Arcade', type: PlanType.Arcade, price: 9 },
-    { name: 'Advanced', type: PlanType.Advanced, price: 12 },
-    { name: 'Pro', type: PlanType.Pro, price: 15 }
+    { name: 'Arcade', type: PlanType.Arcade, monthlyPrice: 9, yearlyPrice: 90, selected: false, imagePath: '/assets/images/icon-arcade.svg' },
+    { name: 'Advanced', type: PlanType.Advanced, monthlyPrice: 12, yearlyPrice: 120, selected: false, imagePath: '/assets/images/icon-advanced.svg' },
+    { name: 'Pro', type: PlanType.Pro, monthlyPrice: 15, yearlyPrice: 150, selected: false, imagePath: '/assets/images/icon-pro.svg' }
   ]
+
+  billingCycle: 'Monthly' | 'Yearly' = "Monthly";
 
   currentStep:number = 0;
   constructor(){
@@ -46,7 +49,7 @@ export class FormModalComponent {
   nextStep(){
     if (this.currentStep < 1){
       this.currentStep++;
-      alert(`User entered ${this.formData.name}, ${this.formData.email} and ${this.formData.phoneNumber} is a ${typeof(this.formData.phoneNumber)}`)
+      // alert(`User entered ${this.formData.name}, ${this.formData.email} and ${this.formData.phoneNumber} is a ${typeof(this.formData.phoneNumber)}`)
     }
   }
 
