@@ -62,9 +62,12 @@ input{
     font-weight: 500;
 }
 
-.cta_{
+.bottom{
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.3rem;
+    margin-bottom: 2.4rem;
 }
 
 .cta-primary{
@@ -76,9 +79,16 @@ input{
     border: none;
     outline: none;
     cursor: pointer;
-    margin-bottom: 2.4rem;
 }
 
+.go_back_button{
+    outline: none;
+    border: none;
+    background: transparent;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #A3A4A9;
+}
 
 /* Step 2 */
 .plans{
@@ -126,7 +136,9 @@ input{
     font-weight: 500;    
 }
 
-.
+.billing-cycle-toggle{
+    background-color: #F8F9FE;
+}
 
 
 

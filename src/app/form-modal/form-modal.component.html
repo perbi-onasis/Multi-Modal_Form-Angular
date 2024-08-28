@@ -120,6 +120,15 @@
         <div class="bottom">
             <div class="cta_">
                 <button 
+                (click)="previousStep()"
+                type="button"
+                class="go_back_button"                
+                >
+                Go Back
+                </button>
+            </div>
+            <div class="cta_">
+                <button 
                 (click)="nextStep()"
                 type="button"
                 class="cta-primary"

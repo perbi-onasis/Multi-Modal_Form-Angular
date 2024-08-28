@@ -52,6 +52,12 @@ export class FormModalComponent {
       // alert(`User entered ${this.formData.name}, ${this.formData.email} and ${this.formData.phoneNumber} is a ${typeof(this.formData.phoneNumber)}`)
     }
   }
+  previousStep(){
+    if (this.currentStep > 1){
+      this.currentStep--;
+      // alert(`User entered ${this.formData.name}, ${this.formData.email} and ${this.formData.phoneNumber} is a ${typeof(this.formData.phoneNumber)}`)
+    }
+  }
 
   selectPlan(planType: PlanType){
     this.formData.plan.type = planType;
@@ -68,6 +74,6 @@ export class FormModalComponent {
     // }
   }
 
-  
+
 
 }
