@@ -3,7 +3,7 @@ export interface formData{
     email: String,
     phoneNumber: String,
     plan: Plan;
-    addOns: AddOn[];
+    addOns: AddOn;
 }
 
 export interface Plan{
@@ -24,14 +24,19 @@ export enum BillingCycle{
     Yearly = 'Yearly'
 }
 
+// type BillingCycle  = 'Monthly' | 'Yearly'
+
 export interface AddOn{
     name: string,
-    price: number;
+    price: String;
+    desc: String;
     selected: boolean
 }
 
-export const AvailableAddOns: AddOn[] = [
-    { name: 'Online Service', price: 10, selected: false },
-    { name: 'Larger Storage', price: 20, selected: false },
-    { name: 'Customizable Profile', price: 15, selected: false }
-]
+
+
+// export const AvailableAddOns: AddOn[] = [
+//     { name: 'Online Service', price: 10, selected: false },
+//     { name: 'Larger Storage', price: 20, selected: false },
+//     { name: 'Customizable Profile', price: 15, selected: false }
+// ]

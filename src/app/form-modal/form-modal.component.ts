@@ -3,7 +3,7 @@ import { FormGroup, FormsModule } from '@angular/forms';
 import { IUser } from './user-model.js';
 import { CommonModule } from '@angular/common';
 // import { NgModel } from '@angular/forms';
-import {formData, PlanType, BillingCycle, AvailableAddOns} from './form-data-model.js'
+import {formData, PlanType, BillingCycle, AddOn} from './form-data-model.js'
 
 @Component({
   selector: 'app-form-modal',
@@ -25,7 +25,12 @@ export class FormModalComponent {
       monthlyPrice: '',
       yearlyPrice: ''
     },
-    addOns: AvailableAddOns
+    addOns: {
+      name: '',
+      price: '',
+      desc: '',
+      selected: false
+    }
   }
 
   planOptions = [
@@ -34,9 +39,19 @@ export class FormModalComponent {
     { name: 'Pro', type: PlanType.Pro, monthlyPrice: 15, yearlyPrice: 150, selected: false, imagePath: '/assets/images/icon-pro.svg' }
   ]
 
-  billingCycle: 'Monthly' | 'Yearly' = "Monthly";
+  AvailableAddOns = [
+    { name: 'Online Service', desc: 'Access to multiplayer games', price: '1', selected: true},
+    { name: 'Larger Storage', desc: 'Extra 1TB of cloud save', price: '2', selected: true},
+    { name: 'Customizable Profile', desc: 'Custom theme on your profile', price: '2', selected: true}
+  ]
+
+  
+
+billingCycle: 'Monthly' | 'Yearly' = 'Monthly';
 
   currentStep:number = 0;
+  totalSteps:number = 5;
+
   constructor(){
     
   }
@@ -47,21 +62,36 @@ export class FormModalComponent {
   }
 
   nextStep(){
-    if (this.currentStep < 1){
+    if (this.currentStep < this.totalSteps){
       this.currentStep++;
-      // alert(`User entered ${this.formData.name}, ${this.formData.email} and ${this.formData.phoneNumber} is a ${typeof(this.formData.phoneNumber)}`)
     }
   }
   previousStep(){
-    if (this.currentStep > 1){
+    if (this.currentStep > 0){
       this.currentStep--;
-      // alert(`User entered ${this.formData.name}, ${this.formData.email} and ${this.formData.phoneNumber} is a ${typeof(this.formData.phoneNumber)}`)
     }
   }
 
   selectPlan(planType: PlanType){
     this.formData.plan.type = planType;
     this.updatePlanPrice();
+  }
+
+  isYearly: boolean = false;
+
+  toggleBillingCycle(){
+    // this.isYearly = !this.isYearly;
+
+    // if(this.isYearly){
+    //   this.formData.plan.billingCycle = BillingCycle.Yearly;
+    //   // this.isYearly = true
+    // }else{
+    //   this.formData.plan.billingCycle = BillingCycle.Monthly
+    //   // this.isYearly = false
+    // }
+
+    this.isYearly = !this.isYearly;
+    // this.formData.plan.type = this.isYearly ? BillingCycle.Yearly : BillingCycle.Monthly;
   }
 
   updatePlanPrice(){
@@ -74,6 +104,11 @@ export class FormModalComponent {
     // }
   }
 
+
+  // Add-Ons
+  toggleAddOnSelection(addOn: any){
+    addOn.selected = !addOn.selected
+  }
 
 
 }
